@@ -16,18 +16,16 @@
 char    *ft_strchr(const char *st, int c)
 {
     int i;
-    char *s;
 
     i = 0;
-    s = st;
-    while (s[i] != '\0' && s[i] != c)
+    while (st[i] != '\0' && st[i] != c)
         i++;
-    return (&(s[i]));
+    return ((char *) &(st[i]));
 }
 
 
-int main()
+/*int main()
 {
     char    *str = "hoalkdssahhg";
     printf("%s", ft_strchr(str, 'l'));
-}
+}*/
