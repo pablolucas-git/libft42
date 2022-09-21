@@ -28,7 +28,9 @@ char    *ft_strrchr(const char *st, int c)
 	}
 	if (c == 0)
     	return ((char *) &(st[i]));
-	return ((char *) &(st[j]));
+	else if (st[j] == c)
+		return ((char *) &(st[j]));
+	return (NULL);
 }
 
 /*

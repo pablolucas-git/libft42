@@ -66,4 +66,8 @@ fclean			:	clean
 
 re				:	fclean all
 
-.PHONY			:	all clean fclean re
+so:
+	$(CCOMPILE) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
+.PHONY			:	all clean fclean re so

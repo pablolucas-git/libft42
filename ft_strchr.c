@@ -20,7 +20,9 @@ char    *ft_strchr(const char *st, int c)
     i = 0;
     while (st[i] != '\0' && st[i] != c)
         i++;
-    return ((char *) &(st[i]));
+    if (st[i] == c)
+        return ((char *) &(st[i]));
+    return (NULL);
 }
 
 

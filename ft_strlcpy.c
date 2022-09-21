@@ -11,31 +11,32 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h> 
+#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	i;
-	size_t	dev;
 
 	i = 0;
-	while (src[i] != '\0')
+	if (size <= 0)
+		return (ft_strlen(src));
+	while (src[i] != '\0' )
 	{
 		if (size > 1 && i < size - 1)
 			dest[i] = src[i];
 		i++;
 	}
-	dev = i;
 	dest[i] = '\0';
-	return (dev);
+	return (i);
 }
 
 /*int	main(void)
 {
 	char str[] = "abcdef";
 	char dest[10];
-	printf("\033[0;32mMIA: %x - %s\n", ft_strlcpy(dest, str, 5), dest);
+	printf("\033[0;32mMIA: %li - %s\n", ft_strlcpy(dest, str, 5), dest);
 	char str2[] = "abcdef";
 	char dest2[10];
-	printf("\033[0;34mORIGINAL: %lx - %s\n\033[0m", strlcpy(dest2, str2, 5), dest2);
+	printf("\033[0;34mORIGINAL: %i - %s\n\033[0m", strlcpy(dest2, str2, 5), dest2);
 }*/
