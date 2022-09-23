@@ -6,7 +6,7 @@
 /*   By: pprieto- <pprieto-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:46:10 by pprieto-          #+#    #+#             */
-/*   Updated: 2022/09/17 18:51:40 by pprieto-         ###   ########.fr       */
+/*   Updated: 2022/09/23 21:46:14 by pprieto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /* devuelve longitud del src + size (si es menor a la longitus del dest), 
 o longitud del src + la longitus del dest*/
 
-size_t	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, unsigned int size)
 {
 	size_t	j;
 	size_t	i;
@@ -26,20 +26,20 @@ size_t	ft_strlcat(char *dest, char *src, unsigned int size)
 	lon_s = ft_strlen(src);
 	lon_d = ft_strlen(dest);
 	i = 0;
-	j = ft_strlen(dest);
-	if (size != '\0')
+	j = lon_d;
+	if (lon_d >= size)
+		return (lon_s + size);
+	if (size > 0)
 	{	
-		while (src[i] != '\0' && (j < size - 1))
+		while (src[i] != '\0' && ((lon_d + i) < (size - 1)))
 		{
 			dest[j] = src[i];
 			j++;
 			i++;
 		}
 		dest[j] = '\0';
-		if (size > j)
-			return (lon_d + lon_s);
 	}
-	return (size + lon_s);
+	return (lon_d + lon_s);
 }
 
 /*int main(){
